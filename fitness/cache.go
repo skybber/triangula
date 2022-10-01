@@ -14,14 +14,14 @@ type CacheData interface {
 	Hash() uint64
 	Data() float64
 	CachedHash() uint32
-	SetCachedHash(uint322 uint32)
+	SetCachedHash(uint32 uint32)
 }
 
 // TriangleCacheData stores the triangles vertices and its fitness, and is used to cache calculations.
 type TriangleCacheData struct {
-	aX, aY  int16
-	bX, bY  int16
-	cX, cY  int16
+	aX, aY  int32
+	bX, bY  int32
+	cX, cY  int32
 	fitness float64
 	hash    uint32
 }
@@ -55,7 +55,7 @@ func (t *TriangleCacheData) SetCachedHash(hash uint32) {
 }
 
 type PolygonCacheData struct {
-	coords  []int16
+	coords  []int32
 	fitness float64
 	hash    uint32
 }

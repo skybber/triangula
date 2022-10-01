@@ -13,8 +13,8 @@ func newPointMap(size int) pointMap {
 }
 
 // AddPoint adds a point to the pointMap, accounting for duplicates.
-func (pm *pointMap) AddPoint(point Point) uint16 {
-	x, y := uint16(point.X), uint16(point.Y)
+func (pm *pointMap) AddPoint(point Point) uint32 {
+	x, y := uint32(point.X), uint32(point.Y)
 	index := point.Hash() % len(pm.points)
 
 	// Check if the point already exists
@@ -36,8 +36,8 @@ func (pm *pointMap) AddPoint(point Point) uint16 {
 
 // RemovePoint removes a point from the pointMap, accounting for duplicates,
 // and returning the number of the same point left.
-func (pm *pointMap) RemovePoint(point Point) uint16 {
-	x, y := uint16(point.X), uint16(point.Y)
+func (pm *pointMap) RemovePoint(point Point) uint32 {
+	x, y := uint32(point.X), uint32(point.Y)
 	index := point.Hash() % len(pm.points)
 
 	for i, p := range pm.points[index] {
@@ -58,8 +58,8 @@ func (pm *pointMap) RemovePoint(point Point) uint16 {
 	panic("point doesn't exist")
 }
 
-func (pm *pointMap) CopiesOf(point Point) uint16 {
-	x, y := uint16(point.X), uint16(point.Y)
+func (pm *pointMap) CopiesOf(point Point) uint32 {
+	x, y := uint32(point.X), uint32(point.Y)
 	index := point.Hash() % len(pm.points)
 
 	for _, p := range pm.points[index] {
@@ -99,8 +99,8 @@ func (pm pointMap) IterPoints(point func(Point)) {
 	for i := range pm.points {
 		for _, p := range pm.points[i] {
 			point(Point{
-				X: int16(p.x),
-				Y: int16(p.y),
+				X: int32(p.x),
+				Y: int32(p.y),
 			})
 		}
 	}
@@ -108,6 +108,6 @@ func (pm pointMap) IterPoints(point func(Point)) {
 
 // pointEntry is used to keep track of a point and how many copies of a point there are.
 type pointEntry struct {
-	x, y  uint16
-	count uint16 // the number of a point the hash table contains.
+	x, y  uint32
+	count uint32 // the number of a point the hash table contains.
 }

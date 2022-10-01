@@ -7,7 +7,7 @@ import (
 // CircumcircleGrid is a data structure that uses spatial partitioning to allowed fast operations
 // involving multiple Triangle's and their Circumcircle's.
 type CircumcircleGrid struct {
-	triangles            [][][]uint16 // The grid used to store triangles
+	triangles            [][][]uint32 // The grid used to store triangles
 	cols, rows           int
 	rowPixels, colPixels float64 // The number of pixels per row and column
 }
@@ -20,15 +20,15 @@ func NewCircumcircleGrid(cols, rows, w, h int) CircumcircleGrid {
 	c.colPixels = float64(w) / float64(cols)
 	c.rowPixels = float64(h) / float64(rows)
 
-	c.triangles = make([][][]uint16, c.rows)
+	c.triangles = make([][][]uint32, c.rows)
 	for i := range c.triangles {
-		c.triangles[i] = make([][]uint16, c.cols)
+		c.triangles[i] = make([][]uint32, c.cols)
 	}
 	return c
 }
 
 // AddTriangle adds a Triangle with an index to the grid.
-func (c *CircumcircleGrid) AddTriangle(t Triangle, index uint16) {
+func (c *CircumcircleGrid) AddTriangle(t Triangle, index uint32) {
 	// Find all the boxes of the grid that the triangle's circumcircle intersects
 	radius := t.Circumcircle.Radius + 0.001
 	topLeftX := int(float64(t.Circumcircle.cX-radius) / c.colPixels)
@@ -61,7 +61,7 @@ func (c *CircumcircleGrid) AddTriangle(t Triangle, index uint16) {
 }
 
 // RemoveTriangle removes a triangle from the grid.
-func (c *CircumcircleGrid) RemoveTriangle(tri Triangle, index uint16) {
+func (c *CircumcircleGrid) RemoveTriangle(tri Triangle, index uint32) {
 	// Find all the boxes of the grid that the triangle's circumcircle intersects
 	radius := tri.Circumcircle.Radius + 0.001
 	topLeftX := int(float64(tri.Circumcircle.cX-radius) / c.colPixels)
@@ -133,7 +133,7 @@ func (c CircumcircleGrid) HasPoint(p Point, triangles []Triangle) bool {
 }
 
 // RemoveCircumcirclesThatContain removes all triangles whose circumcircle contain a point.
-func (c CircumcircleGrid) RemoveCircumcirclesThatContain(p Point, triangles []Triangle, contains func(i uint16)) {
+func (c CircumcircleGrid) RemoveCircumcirclesThatContain(p Point, triangles []Triangle, contains func(i uint32)) {
 	// Find which box of the grid the point falls into
 	x := int(math.Floor(float64(p.X) / c.colPixels))
 	y := int(math.Floor(float64(p.Y) / c.rowPixels))
@@ -166,7 +166,7 @@ func (c CircumcircleGrid) RemoveCircumcirclesThatContain(p Point, triangles []Tr
 	}
 }
 
-func (c CircumcircleGrid) IterCircumcirclesThatContain(p Point, triangles []Triangle, contains func(i uint16)) {
+func (c CircumcircleGrid) IterCircumcirclesThatContain(p Point, triangles []Triangle, contains func(i uint32)) {
 	// Find which box of the grid the point falls into
 	x := int(math.Floor(float64(p.X) / c.colPixels))
 	y := int(math.Floor(float64(p.Y) / c.rowPixels))
@@ -196,7 +196,7 @@ func (c CircumcircleGrid) IterCircumcirclesThatContain(p Point, triangles []Tria
 }
 
 // RemoveThatHasVertex removes all triangles that have a vertex.
-func (c CircumcircleGrid) RemoveThatHasVertex(p Point, triangles []Triangle, contains func(i uint16)) {
+func (c CircumcircleGrid) RemoveThatHasVertex(p Point, triangles []Triangle, contains func(i uint32)) {
 	// Find which box of the grid the point falls into
 	x := int(math.Floor(float64(p.X) / c.colPixels))
 	y := int(math.Floor(float64(p.Y) / c.rowPixels))
@@ -226,7 +226,7 @@ func (c CircumcircleGrid) RemoveThatHasVertex(p Point, triangles []Triangle, con
 	}
 }
 
-func (c CircumcircleGrid) IterThatHasVertex(p Point, triangles []Triangle, contains func(i uint16)) {
+func (c CircumcircleGrid) IterThatHasVertex(p Point, triangles []Triangle, contains func(i uint32)) {
 	// Find which box of the grid the point falls into
 	x := int(math.Floor(float64(p.X) / c.colPixels))
 	y := int(math.Floor(float64(p.Y) / c.rowPixels))
@@ -260,7 +260,7 @@ func (c *CircumcircleGrid) Set(other *CircumcircleGrid) {
 			if len(c.triangles[x][y]) > len(other.triangles[x][y]) {
 				c.triangles[x][y] = c.triangles[x][y][:len(other.triangles[x][y])]
 			} else if len(c.triangles[x][y]) < len(other.triangles[x][y]) {
-				c.triangles[x][y] = make([]uint16, len(other.triangles[x][y]))
+				c.triangles[x][y] = make([]uint32, len(other.triangles[x][y]))
 			}
 
 			copy(c.triangles[x][y], other.triangles[x][y])

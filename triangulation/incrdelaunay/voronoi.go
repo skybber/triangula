@@ -35,7 +35,7 @@ func (v *IVoronoi) Insert(point Point) {
 	v.pointsToUpdate = v.pointsToUpdate[:0]
 	triangles := v.delaunay.triangles
 
-	v.delaunay.grid.IterCircumcirclesThatContain(point, triangles, func(i uint16) {
+	v.delaunay.grid.IterCircumcirclesThatContain(point, triangles, func(i uint32) {
 		t := triangles[i]
 		v.addPointToUpdate(t.A)
 		v.addPointToUpdate(t.B)
@@ -65,7 +65,7 @@ func (v *IVoronoi) Remove(point Point) {
 	v.pointsToUpdate = v.pointsToUpdate[:0]
 	triangles := v.delaunay.triangles
 
-	v.delaunay.grid.IterThatHasVertex(point, triangles, func(i uint16) {
+	v.delaunay.grid.IterThatHasVertex(point, triangles, func(i uint32) {
 		t := triangles[i]
 
 		v.addPointToUpdate(t.A)
@@ -102,7 +102,7 @@ func (v *IVoronoi) processPoint(point Point) {
 	v.points = v.points[:0]
 	clip := false
 
-	v.delaunay.grid.IterThatHasVertex(point, triangles, func(i uint16) {
+	v.delaunay.grid.IterThatHasVertex(point, triangles, func(i uint32) {
 		circ := triangles[i].Circumcircle
 
 		new := FloatPoint{
@@ -318,7 +318,7 @@ func Voronoi(delaunay *Delaunay, polygon func([]FloatPoint), w, h int) {
 		points = points[:0]
 		clip := false
 
-		delaunay.grid.IterThatHasVertex(point, triangles, func(i uint16) {
+		delaunay.grid.IterThatHasVertex(point, triangles, func(i uint32) {
 			circ := triangles[i].Circumcircle
 
 			new := FloatPoint{

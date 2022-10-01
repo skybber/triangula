@@ -71,7 +71,7 @@ func (g *polygonsImageFunction) Calculate(data PointsData) float64 {
 
 	var polygon geom.Polygon
 
-	var polygonData []int16
+	var polygonData []int32
 
 	g.Triangulation.IterPolygons(func(points []incrdelaunay.FloatPoint) {
 
@@ -85,8 +85,8 @@ func (g *polygonsImageFunction) Calculate(data PointsData) float64 {
 			}
 			if len(polygon.Points) == 0 || polygon.Points[len(polygon.Points)-1] != new {
 				polygon.Points = append(polygon.Points, new)
-				polygonData = append(polygonData, int16(new.X))
-				polygonData = append(polygonData, int16(new.Y))
+				polygonData = append(polygonData, int32(new.X))
+				polygonData = append(polygonData, int32(new.Y))
 			}
 		}
 
@@ -136,7 +136,7 @@ func (g *polygonsImageFunction) Calculate(data PointsData) float64 {
 			difference += diff
 			polyData.fitness = diff
 			polyData.SetCachedHash(index0)
-			var newPolyData []int16
+			var newPolyData []int32
 			newPolyData = append(newPolyData, polygonData...)
 
 			polyData.coords = newPolyData

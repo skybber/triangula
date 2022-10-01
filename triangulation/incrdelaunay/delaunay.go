@@ -15,7 +15,7 @@ type Delaunay struct {
 
 	pointMap pointMap
 
-	freeTriangles []uint16 // A list of free indexes in the triangles slice.
+	freeTriangles []uint32 // A list of free indexes in the triangles slice.
 
 	superTriangle Triangle // A triangle that contains all points added.
 
@@ -57,7 +57,7 @@ func (d *Delaunay) Insert(p Point) bool {
 	d.resetEdges()
 
 	// Iterate through all the triangles with circumcircles that contain the point
-	d.grid.RemoveCircumcirclesThatContain(p, d.triangles, func(i uint16) {
+	d.grid.RemoveCircumcirclesThatContain(p, d.triangles, func(i uint32) {
 		t := d.triangles[i]
 
 		d.addEdge(NewEdge(t.A, t.B))
@@ -110,7 +110,7 @@ func (d *Delaunay) Remove(p Point) {
 	}
 
 	// Iterates through all the triangles that have a connection to point p
-	d.grid.RemoveThatHasVertex(p, d.triangles, func(i uint16) {
+	d.grid.RemoveThatHasVertex(p, d.triangles, func(i uint32) {
 		t := d.triangles[i]
 
 		addPoint(t.A)
@@ -243,14 +243,14 @@ func (d *Delaunay) addTriangle(t Triangle) {
 		return
 	}
 
-	d.grid.AddTriangle(t, uint16(len(d.triangles))) // Update the grid
+	d.grid.AddTriangle(t, uint32(len(d.triangles))) // Update the grid
 
 	d.triangles = append(d.triangles, t)
 }
 
 // markFreeTriangle marks a triangle in the triangles slice as no longer being needed,
 // essentially removing the triangle from the triangulation.
-func (d *Delaunay) markFreeTriangle(i uint16) {
+func (d *Delaunay) markFreeTriangle(i uint32) {
 	d.triangles[i].A.X = -1 // Marks the triangle as invalid
 	d.freeTriangles = append(d.freeTriangles, i)
 }
@@ -292,7 +292,7 @@ func (d *Delaunay) Set(other *Delaunay) {
 	if len(d.freeTriangles) > len(other.freeTriangles) {
 		d.freeTriangles = d.freeTriangles[:len(other.freeTriangles)]
 	} else if len(d.freeTriangles) < len(other.freeTriangles) {
-		d.freeTriangles = make([]uint16, len(other.freeTriangles))
+		d.freeTriangles = make([]uint32, len(other.freeTriangles))
 	}
 
 	copy(d.freeTriangles, other.freeTriangles)

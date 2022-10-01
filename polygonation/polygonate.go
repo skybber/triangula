@@ -13,8 +13,8 @@ func Polygonate(points normgeom.NormPointGroup, w, h int) []geom.Polygon {
 	triangulation := incrdelaunay.NewDelaunay(w, h)
 	for _, p := range points {
 		triangulation.Insert(incrdelaunay.Point{
-			X: int16(math.Round(p.X * fW)),
-			Y: int16(math.Round(p.Y * fH)),
+			X: int32(math.Round(p.X * fW)),
+			Y: int32(math.Round(p.Y * fH)),
 		})
 	}
 

@@ -14,7 +14,7 @@ func fastRound(n float64) int {
 
 func createPoint(x, y float64, w, h int) incrdelaunay.Point {
 	return incrdelaunay.Point{
-		X: int16(fastRound(x * float64(w))),
-		Y: int16(fastRound(y * float64(h))),
+		X: int32(fastRound(x * float64(w))),
+		Y: int32(fastRound(y * float64(h))),
 	}
 }

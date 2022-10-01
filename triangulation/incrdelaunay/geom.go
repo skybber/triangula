@@ -27,12 +27,12 @@ func (t Triangle) HasVertex(p Point) bool {
 
 // NewSuperTriangle returns a Triangle large enough to cover all points within (0, 0) to (w, h).
 func NewSuperTriangle(w, h int) Triangle {
-	hW := int16(math.Ceil(float64(w) / 2))
-	hH := int16(math.Ceil(float64(h) / 2))
+	hW := int32(math.Ceil(float64(w) / 2))
+	hH := int32(math.Ceil(float64(h) / 2))
 
-	max := int16(w)
+	max := int32(w)
 	if h > w {
-		max = int16(h)
+		max = int32(h)
 	}
 	a := Point{hW - 2*max, hH - max}
 	b := Point{hW, hH + 2*max}
@@ -41,9 +41,9 @@ func NewSuperTriangle(w, h int) Triangle {
 	return NewTriangle(a, b, c)
 }
 
-// Point represents a 2D point, using int16 to optimize space.
+// Point represents a 2D point, using int32 to optimize space.
 type Point struct {
-	X, Y int16
+	X, Y int32
 }
 
 // DistSq returns the distance squared to another point.
