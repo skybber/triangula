@@ -1,6 +1,6 @@
 package mutation
 
-import "github.com/RH12503/Triangula/normgeom"
+import "github.com/skybber/Triangula/normgeom"
 
 // Mutation stores data related to a mutation.
 type Mutation struct {

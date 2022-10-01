@@ -1,11 +1,11 @@
 package render
 
 import (
-	"github.com/RH12503/Triangula/color"
-	"github.com/RH12503/Triangula/geom"
-	"github.com/RH12503/Triangula/image"
-	"github.com/RH12503/Triangula/normgeom"
-	"github.com/RH12503/Triangula/rasterize"
+	"github.com/skybber/Triangula/color"
+	"github.com/skybber/Triangula/geom"
+	"github.com/skybber/Triangula/image"
+	"github.com/skybber/Triangula/normgeom"
+	"github.com/skybber/Triangula/rasterize"
 )
 
 type PolygonData struct {

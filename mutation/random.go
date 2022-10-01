@@ -1,7 +1,7 @@
 package mutation
 
 import (
-	"github.com/RH12503/Triangula/normgeom"
+	"github.com/skybber/Triangula/normgeom"
 	"math/rand"
 )
 

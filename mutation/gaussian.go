@@ -1,8 +1,8 @@
 package mutation
 
 import (
-	"github.com/RH12503/Triangula/normgeom"
-	"github.com/RH12503/Triangula/random"
+	"github.com/skybber/Triangula/normgeom"
+	"github.com/skybber/Triangula/random"
 )
 
 // gaussianMethod uses a gaussian random number while calculating the magnitude of a mutation.

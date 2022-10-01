@@ -1,7 +1,7 @@
 package fitness
 
 import (
-	"github.com/RH12503/Triangula/image"
+	"github.com/skybber/Triangula/image"
 )
 
 // pixelData stores data relating to the pixels of an image, and is used in trianglesImageFunction.

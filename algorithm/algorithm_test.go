@@ -1,13 +1,13 @@
 package algorithm
 
 import (
-	"github.com/RH12503/Triangula/algorithm/evaluator"
-	"github.com/RH12503/Triangula/fitness"
-	"github.com/RH12503/Triangula/generator"
-	imageData "github.com/RH12503/Triangula/image"
-	"github.com/RH12503/Triangula/mutation"
-	"github.com/RH12503/Triangula/normgeom"
-	"github.com/RH12503/Triangula/random"
+	"github.com/skybber/Triangula/algorithm/evaluator"
+	"github.com/skybber/Triangula/fitness"
+	"github.com/skybber/Triangula/generator"
+	imageData "github.com/skybber/Triangula/image"
+	"github.com/skybber/Triangula/mutation"
+	"github.com/skybber/Triangula/normgeom"
+	"github.com/skybber/Triangula/random"
 	"image"
 	_ "image/jpeg"
 	"log"

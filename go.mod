@@ -1,4 +1,4 @@
-module github.com/RH12503/Triangula
+module github.com/skybber/Triangula
 
 go 1.16
 

@@ -2,7 +2,7 @@
 package geom
 
 import (
-	"github.com/RH12503/Triangula/normgeom"
+	"github.com/skybber/Triangula/normgeom"
 )
 
 // Point represents a 2D point with integer coordinates.

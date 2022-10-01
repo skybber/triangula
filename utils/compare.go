@@ -2,8 +2,8 @@ package utils
 
 import (
 	"fmt"
-	"github.com/RH12503/Triangula/algorithm"
-	"github.com/RH12503/Triangula/random"
+	"github.com/skybber/Triangula/algorithm"
+	"github.com/skybber/Triangula/random"
 	"math/rand"
 	"time"
 )

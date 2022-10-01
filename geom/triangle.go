@@ -1,6 +1,6 @@
 package geom
 
-import "github.com/RH12503/Triangula/normgeom"
+import "github.com/skybber/Triangula/normgeom"
 
 // Triangle represents a triangle with integer coordinates.
 type Triangle struct {

@@ -1,10 +1,10 @@
 package fitness
 
 import (
-	"github.com/RH12503/Triangula/geom"
-	"github.com/RH12503/Triangula/image"
-	"github.com/RH12503/Triangula/rasterize"
-	"github.com/RH12503/Triangula/triangulation/incrdelaunay"
+	"github.com/skybber/Triangula/geom"
+	"github.com/skybber/Triangula/image"
+	"github.com/skybber/Triangula/rasterize"
+	"github.com/skybber/Triangula/triangulation/incrdelaunay"
 	"math"
 )
 

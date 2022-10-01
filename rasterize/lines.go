@@ -1,6 +1,6 @@
 package rasterize
 
-import "github.com/RH12503/Triangula/geom"
+import "github.com/skybber/Triangula/geom"
 
 // DDATriangleLines calls function line for each horizontal line a geom.Triangle covers
 // using a digital differential analyzing algorithm.

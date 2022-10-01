@@ -2,7 +2,7 @@
 package mutation
 
 import (
-	"github.com/RH12503/Triangula/normgeom"
+	"github.com/skybber/Triangula/normgeom"
 )
 
 // A Method is used to apply mutations on a point group.

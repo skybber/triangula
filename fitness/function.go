@@ -3,8 +3,8 @@
 package fitness
 
 import (
-	"github.com/RH12503/Triangula/mutation"
-	"github.com/RH12503/Triangula/normgeom"
+	"github.com/skybber/Triangula/mutation"
+	"github.com/skybber/Triangula/normgeom"
 )
 
 // A Function represents a fitness function to evaluate a point group.

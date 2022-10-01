@@ -1,7 +1,7 @@
 package evaluator
 
 import (
-	"github.com/RH12503/Triangula/fitness"
+	"github.com/skybber/Triangula/fitness"
 )
 
 // parallel is a fitness evaluator that supports parallel calculations.

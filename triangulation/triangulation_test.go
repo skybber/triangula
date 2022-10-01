@@ -1,8 +1,8 @@
 package triangulation
 
 import (
-	"github.com/RH12503/Triangula/geom"
-	"github.com/RH12503/Triangula/normgeom"
+	"github.com/skybber/Triangula/geom"
+	"github.com/skybber/Triangula/normgeom"
 	"github.com/fogleman/delaunay"
 	"github.com/stretchr/testify/assert"
 	"testing"

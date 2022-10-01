@@ -1,10 +1,10 @@
 package algorithm
 
 import (
-	"github.com/RH12503/Triangula/algorithm/evaluator"
-	"github.com/RH12503/Triangula/fitness"
-	"github.com/RH12503/Triangula/mutation"
-	"github.com/RH12503/Triangula/normgeom"
+	"github.com/skybber/Triangula/algorithm/evaluator"
+	"github.com/skybber/Triangula/fitness"
+	"github.com/skybber/Triangula/mutation"
+	"github.com/skybber/Triangula/normgeom"
 	"github.com/panjf2000/ants/v2"
 	"sort"
 	"time"
@@ -17,7 +17,7 @@ import (
 // These members are called "bases", and all other members are mutated versions of the bases.
 // At the end, for each base, a copy is created and mutated with all the beneficial mutations found for that base.
 //
-// For a full explanation on how the algorithm works see: https://github.com/RH12503/Triangula/wiki/Explanation-of-the-algorithm.
+// For a full explanation on how the algorithm works see: https://github.com/skybber/Triangula/wiki/Explanation-of-the-algorithm.
 type modifiedGenetic struct {
 	evaluator evaluator.Evaluator // Contains the fitness function(s) used to calculate fitnesses.
 	mutator   mutation.Method     // Used in newGeneration to mutate members of the population.

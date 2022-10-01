@@ -2,7 +2,7 @@ package utils
 
 import (
 	"bufio"
-	"github.com/RH12503/Triangula/algorithm"
+	"github.com/skybber/Triangula/algorithm"
 	"os"
 	"runtime/trace"
 )

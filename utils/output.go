@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
-	"github.com/RH12503/Triangula/algorithm"
+	"github.com/skybber/Triangula/algorithm"
 	"io/ioutil"
 	"log"
 	"os"

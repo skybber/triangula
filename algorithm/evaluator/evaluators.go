@@ -3,7 +3,7 @@
 package evaluator
 
 import (
-	"github.com/RH12503/Triangula/fitness"
+	"github.com/skybber/Triangula/fitness"
 )
 
 // An Evaluator is used by an algorithm to evaluate the fitness of its members.

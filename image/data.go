@@ -1,6 +1,6 @@
 package image
 
-import "github.com/RH12503/Triangula/color"
+import "github.com/skybber/Triangula/color"
 
 type Data interface {
 	RGBAt(x, y int) color.RGB

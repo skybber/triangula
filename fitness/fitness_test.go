@@ -1,9 +1,9 @@
 package fitness
 
 import (
-	image2 "github.com/RH12503/Triangula/image"
-	"github.com/RH12503/Triangula/normgeom"
-	"github.com/RH12503/Triangula/random"
+	image2 "github.com/skybber/Triangula/image"
+	"github.com/skybber/Triangula/normgeom"
+	"github.com/skybber/Triangula/random"
 	"github.com/stretchr/testify/assert"
 	"image"
 	"image/color"

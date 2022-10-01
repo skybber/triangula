@@ -1,10 +1,10 @@
 package algorithm
 
 import (
-	"github.com/RH12503/Triangula/algorithm/evaluator"
-	"github.com/RH12503/Triangula/fitness"
-	"github.com/RH12503/Triangula/mutation"
-	"github.com/RH12503/Triangula/normgeom"
+	"github.com/skybber/Triangula/algorithm/evaluator"
+	"github.com/skybber/Triangula/fitness"
+	"github.com/skybber/Triangula/mutation"
+	"github.com/skybber/Triangula/normgeom"
 	"github.com/panjf2000/ants/v2"
 	"sort"
 	"time"

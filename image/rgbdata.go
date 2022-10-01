@@ -2,7 +2,7 @@
 package image
 
 import (
-	"github.com/RH12503/Triangula/color"
+	"github.com/skybber/Triangula/color"
 	"image"
 )
 

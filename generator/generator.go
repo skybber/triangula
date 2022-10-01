@@ -1,7 +1,7 @@
 // Package generator provides an interface and implementations of generators to create a group of points.
 package generator
 
-import "github.com/RH12503/Triangula/normgeom"
+import "github.com/skybber/Triangula/normgeom"
 
 // A Generator is used to generate a group of points.
 type Generator interface {

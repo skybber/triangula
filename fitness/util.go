@@ -1,6 +1,6 @@
 package fitness
 
-import "github.com/RH12503/Triangula/triangulation/incrdelaunay"
+import "github.com/skybber/Triangula/triangulation/incrdelaunay"
 
 // The maximum difference for each pixel
 // there can be when compared to the target image. Variance is calculated, so the

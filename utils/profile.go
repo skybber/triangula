@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/RH12503/Triangula/algorithm"
+	"github.com/skybber/Triangula/algorithm"
 	"log"
 	"os"
 	"runtime/pprof"

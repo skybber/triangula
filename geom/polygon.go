@@ -1,6 +1,6 @@
 package geom
 
-import "github.com/RH12503/Triangula/normgeom"
+import "github.com/skybber/Triangula/normgeom"
 
 // Polygon represents a n-gon with integer coordinates.
 type Polygon struct {
